@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KIECO Currency Converter</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background-image:url("bg.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:15px;
+width:420px;
+box-shadow:0 15px 30px rgba(0,0,0,0.3);
+text-align:center;
+}
+
+.logo{
+width:170px;
+margin-bottom:10px;
+}
+
+h2{
+color:#0f4c9c;
+margin-bottom:15px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#0f4c9c;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#083c7a;
+}
+
+.result{
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+color:#333;
+}
+
+table{
+margin-top:20px;
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#0f4c9c;
+color:white;
+padding:10px;
+}
+
+td{
+padding:8px;
+border-bottom:1px solid #ddd;
+}
+
+.flag{
+width:26px;
+vertical-align:middle;
+margin-right:8px;
+}
+
+.currency{
+display:flex;
+align-items:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="logo.jpg" class="logo">
+
+<h2>Currency Converter</h2>
+
+<input type="number" id="amount" placeholder="Enter amount">
+
+<select id="from">
+<option value="1">KWD - Kuwait</option>
+<option value="297.350">INR - India</option>
+<option value="479.00">NPR - Nepal</option>
+<option value="400.00">BDT - Bangladesh</option>
+<option value="927.250">PKR - Pakistan</option>
+<option value="165.700">EGP - Egypt</option>
+<option value="1020.00">LKR - Sri Lanka</option>
+<option value="194.00">PHP - Philippines</option>
+<option value="2.299">JOD - Jordan</option>
+<option value="3.247">USD - USA</option>
+<option value="11.911">AED - UAE</option>
+</select>
+
+<select id="to">
+<option value="1">KWD - Kuwait</option>
+<option value="297.350">INR - India</option>
+<option value="479.00">NPR - Nepal</option>
+<option value="400.00">BDT - Bangladesh</option>
+<option value="927.250">PKR - Pakistan</option>
+<option value="165.700">EGP - Egypt</option>
+<option value="1020.00">LKR - Sri Lanka</option>
+<option value="194.00">PHP - Philippines</option>
+<option value="2.299">JOD - Jordan</option>
+<option value="3.247">USD - USA</option>
+<option value="11.911">AED - UAE</option>
+</select>
+
+<button onclick="convert()">Convert</button>
+
+<div class="result" id="result"></div>
+
+<table>
+
+<tr>
+<th>Country</th>
+<th>Rate (per KWD)</th>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/in.png">India</td>
+<td>297.350</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/np.png">Nepal</td>
+<td>479.00</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/bd.png">Bangladesh</td>
+<td>400.00</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/pk.png">Pakistan</td>
+<td>927.250</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/eg.png">Egypt</td>
+<td>165.700</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/lk.png">Sri Lanka</td>
+<td>1020.00</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/ph.png">Philippines</td>
+<td>194.00</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/jo.png">Jordan</td>
+<td>2.299</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/us.png">United States</td>
+<td>3.247</td>
+</tr>
+
+<tr>
+<td class="currency"><img class="flag" src="https://flagcdn.com/w40/ae.png">UAE</td>
+<td>11.911</td>
+</tr>
+
+</table>
+
+</div>
+
+<script>
+
+function convert(){
+
+let amount=document.getElementById("amount").value;
+let from=document.getElementById("from").value;
+let to=document.getElementById("to").value;
+
+if(amount=="" || amount<=0){
+document.getElementById("result").innerHTML="Enter valid amount";
+return;
+}
+
+let result=amount*(to/from);
+
+document.getElementById("result").innerHTML="Converted Amount: "+result.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
